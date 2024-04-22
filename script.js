@@ -6,10 +6,8 @@ for (let [key, value] of params.entries()) {
   paramsObject[key] = value;
 }
 
-console.log(paramsObject);
+const fetchBlob = (mediaType, title) => {};
 
-
-
-const fetchBlob = () => {
-  
+if (paramsObject.dUrl) {
+  location.href = paramsObject.dUrl;
 }

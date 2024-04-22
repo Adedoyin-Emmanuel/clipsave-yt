@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage ExtraBold";
+  src: url("/public/fonts/BricolageGrotesque-Medium-BF648bd578394c9.otf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Bricolage";
+  src: url("/public/fonts/BricolageGrotesque_36pt-Light.ttf");
+  font-weight: normal;
+}
+
+.extrabold {
+  font-family: "Bricolage Extrabold" !important;
+  font-weight: 900;
+}
+
+.dark-theme {
+  background: hsl(222.2 84% 4.9%);
+  color: white;
+}
+
+.light-theme {
+  background: #fff;
+  color: black;
+}
+
+.bg-pattern:before {
+  content: "";
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.08;
+  z-index: -2px;
+  background-image: url(/public/assets/pattern.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+*,
+html,
+body {
+  font-family: "Bricolage";
+}

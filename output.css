@@ -2130,6 +2130,10 @@ video {
   text-decoration-style: wavy;
 }
 
+.underline-offset-1 {
+  text-underline-offset: 1px;
+}
+
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

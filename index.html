@@ -8,13 +8,13 @@
     <link rel="icon" href="favicon.ico" />
     <title>Clipsave Youtube Downloader</title>
   </head>
-  <body>
-    <section class="w-screen h-screen dark-theme bg-pattern py-3 p-2">
+  <body class="dark-theme">
+    <section class="w-screen h-screen bg-pattern py-3 p-2">
       <br />
       <section class="relative my-5">
         <section class="flex md:tems-center md:justify-center">
           <h1
-            class="md:text-3xl text-2xl md:p-0 capitalize font-bold mt-8 mb-5"
+            class="md:text-3xl text-2xl md:p-0 capitalize font-bold mt-8 mb-5 text-center mx-auto"
           >
             Youtube Video Downloader
           </h1>
@@ -25,6 +25,7 @@
             type="text"
             class="w-full bg-transparent border rounded-md outline-none md:w-3/4 lg:w-8/12 xl:w-1/2 p-5 my-4 focus:border-[#5A83ED] focus:border-2 transition-all duration-75"
             placeholder="Enter or paste youtube link"
+            id="youtubeLinkInput"
           />
         </section>
         <br />
@@ -155,8 +156,8 @@
               <p class="text-sm">@Matt McGuire</p>
             </section>
           </section>
-
-          <section class="">
+          <br class="md:hidden" />
+          <section class="my-3">
             <div class="container mx-auto">
               <div class="rounded-md overflow-hidden">
                 <!-- Tab buttons -->
@@ -181,26 +182,26 @@
                   </button>
                 </div>
                 <!-- Tab content -->
-                <div class="p-4">
+                <div class="">
                   <div id="tabContent1" class="text-[14px]">
                     <table class="min-w-full divide-y-2 divide-slate-600">
                       <thead class="">
                         <tr>
                           <th
                             scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
+                            class="py-3 text-center text-[14px] text-gray-500"
                           >
                             File type
                           </th>
                           <th
                             scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
+                            class="py-3 text-center text-[14px] text-gray-500"
                           >
                             File size
                           </th>
                           <th
                             scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
+                            class="py-3 text-center text-[14px] text-gray-500"
                           >
                             Action
                           </th>
@@ -208,11 +209,11 @@
                       </thead>
                       <tbody class="">
                         <tr>
-                          <td class="px-6 py-4 text-center">
+                          <td class="px-6 py-3 text-center">
                             MP4 auto quality
                           </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
+                          <td class="px-6 py-3 text-center">1.5 MB</td>
+                          <td class="px-6 py-3 text-center">
                             <button
                               class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"
                             >
@@ -222,41 +223,13 @@
                         </tr>
 
                         <tr>
-                          <td class="px-6 py-4 text-center">
+                          <td class="px-6 py-3 text-center">
                             MP4 auto quality
                           </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
+                          <td class="px-6 py-3 text-center">1.5 MB</td>
+                          <td class="px-6 py-3 text-center">
                             <button
                               class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                             >
                               Download
                             </button>
@@ -265,172 +238,8 @@
                       </tbody>
                     </table>
                   </div>
-                  <div id="tabContent2" class="hidden text-[14px]">
-                    <table class="min-w-full divide-y-2 divide-slate-600">
-                      <thead class="">
-                        <tr>
-                          <th
-                            scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
-                          >
-                            File type
-                          </th>
-                          <th
-                            scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
-                          >
-                            File size
-                          </th>
-                          <th
-                            scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
-                          >
-                            Action
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody class="">
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div id="tabContent3" class="hidden text-[14px]">
-                    <table class="min-w-full divide-y-2 divide-slate-600">
-                      <thead class="">
-                        <tr>
-                          <th
-                            scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
-                          >
-                            File type
-                          </th>
-                          <th
-                            scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
-                          >
-                            File size
-                          </th>
-                          <th
-                            scope="col"
-                            class="px-6 py-3 text-center text-[14px] text-gray-500"
-                          >
-                            Action
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody class="">
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td class="px-6 py-4 text-center">
-                            MP4 auto quality
-                          </td>
-                          <td class="px-6 py-4 text-center">1.5 MB</td>
-                          <td class="px-6 py-4 text-center">
-                            <button
-                              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                            >
-                              Download
-                            </button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <div id="tabContent2" class="hidden text-[14px]">Hello world</div>
+                  <div id="tabContent3" class="hidden text-[14px]">Hello Temi ❣️</div>
                 </div>
               </div>
             </div>

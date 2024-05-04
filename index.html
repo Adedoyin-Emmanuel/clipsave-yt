@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
     <link rel="icon" href="favicon.ico" />
     <title>Clipsave Youtube Downloader</title>
   </head>
@@ -29,11 +30,19 @@
         <br />
 
         <!-- Output page-->
-        <section>
-          <section class="video-details">
-            <img src="https://i.ytimg.com/vi/S1ALHkGrw6k/0.jpg" alt="" />
+        <section
+          class="md:w-9/12 mx-auto grid md:grid-cols-2 grid-cols-1 justify-center my-3"
+        >
+          <section
+            class="w-full md:w-11/12 flex flex-col items-start justify-start"
+          >
+            <img
+              src="https://i.ytimg.com/vi/S1ALHkGrw6k/0.jpg"
+              alt="Media thumbnail"
+              class="w-full object-fill"
+            />
 
-            <section class="analytics flex w-full items-center justify-around">
+            <section class="w-full flex items-center justify-between my-3 p-2">
               <div class="likes">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,10 +156,38 @@
             </section>
           </section>
 
-          <section class="download-details">
-
-
-            
+          <section class="">
+            <div class="container mx-auto py-8">
+              <div class="border rounded-md overflow-hidden">
+                <!-- Tab buttons -->
+                <div class="flex">
+                  <button
+                    id="tab1"
+                    class="px-4 py-2 w-1/3 bg-[#1E293B] hover:bg-[#020817] focus:bg-[#020817] focus:outline-none"
+                  >
+                    Video
+                  </button>
+                  <button
+                    id="tab2"
+                    class="px-4 py-2 w-1/3 bg-[#1E293B] hover:bg-[#020817] focus:bg-[#020817] focus:outline-none"
+                  >
+                    Audio
+                  </button>
+                  <button
+                    id="tab3"
+                    class="px-4 py-2 w-1/3 bg-[#1E293B] hover:bg-[#020817] focus:bg-[#020817] focus:outline-none"
+                  >
+                    Others
+                  </button>
+                </div>
+                <!-- Tab content -->
+                <div class="p-4">
+                  <div id="tabContent1" class="">Tab 1 Content</div>
+                  <div id="tabContent2" class="hidden">Tab 2 Content</div>
+                  <div id="tabContent3" class="hidden">Tab 3 Content</div>
+                </div>
+              </div>
+            </div>
           </section>
         </section>
 
@@ -159,6 +196,35 @@
         <section></section>
       </section>
     </section>
+
+    <script>
+      const tabs = ["tab1", "tab2", "tab3"];
+      const tabContents = ["tabContent1", "tabContent2", "tabContent3"];
+      document.getElementById("tab1").focus();
+
+      tabs.forEach((tab) => {
+        document.getElementById(tab).addEventListener("click", () => {
+          tabContents.forEach((content) => {
+            document.getElementById(content).classList.add("hidden");
+          });
+
+          const selectedTabContent = tab.replace("tab", "tabContent");
+
+          tabs.forEach((otherTab) => {
+            if (otherTab !== tab) {
+              console.log(otherTab);
+              const otherTabElement = document.getElementById(otherTab);
+              otherTabElement.style.backgroundColor = "#1E293B";
+            }
+          });
+
+          document.getElementById(tab).style.backgroundColor = "#020817";
+          document
+            .getElementById(selectedTabContent)
+            .classList.remove("hidden");
+        });
+      });
+    </script>
   </body>
   <script src="script.js"></script>
 </html>

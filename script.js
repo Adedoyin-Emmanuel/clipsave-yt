@@ -121,15 +121,12 @@ const toggleLoading = (state, $) => {
   }
 };
 
-const handleConvert = (vId, token) => {
-  console.log(vId, token);
-};
-
 jQuery(($) => {
   $.noConflict();
 
   const ANALYZE_URL = "http://localhost:3000/api/analyze";
-  const DOWNLOAD_URL = "http://localhost:3000/api/downloader/youtube";
+
+
 
   const handleSubmit = (value) => {
     const youtubeLink = value;
@@ -145,7 +142,6 @@ jQuery(($) => {
         renderData(response.data, $);
       },
       error: (xhr, status, error) => {
-        alert(error);
         toggleLoading("hide", $);
       },
 

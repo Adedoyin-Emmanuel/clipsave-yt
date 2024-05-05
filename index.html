@@ -7,7 +7,9 @@
     <script src="jquery.min.js"></script>
     <link rel="icon" href="favicon.ico" />
     <title>Clipsave Youtube Downloader</title>
+    <script src="script.js"></script>
   </head>
+
   <body class="dark-theme w-screen h-screen bg-pattern">
     <section class="w-screen h-screen py-3 p-2">
       <br />
@@ -19,6 +21,11 @@
             Youtube Video Downloader
           </h1>
         </section>
+
+        <div id="modalOverlay" class="hidden p-1">
+          <!-- Modal Content -->
+          <div class="modal-content hidden" id="modalContent"></div>
+        </div>
         <form class="flex items-center justify-center" id="form">
           <input
             type="text"
@@ -400,7 +407,51 @@
             .classList.remove("hidden");
         });
       });
+
+      const modalOverlay = document.getElementById("modalOverlay");
+      const modalContent = document.getElementById("modalContent");
+
+      const handleConvert = async (vId, token) => {
+        let loaderElement = document.getElementById("loader");
+        const DOWNLOAD_URL = "https://clipsavetest.vercel.app/api/downloader/youtube";
+
+        loaderElement.classList.remove("hidden");
+        //modalOverlay.classList.remove("hidden");
+        //modalContent.classList.remove("hidden");
+
+        jQuery.ajax({
+          url: DOWNLOAD_URL,
+          type: "POST",
+          data: JSON.stringify({
+            videoId: vId,
+            token: token,
+          }),
+          success: function (data) {
+            console.log(data);
+            loaderElement.classList.add("hidden");
+            modalOverlay.classList.remove("hidden");
+            modalContent.classList.remove("hidden");
+
+            modalContent.innerHTML = `
+            <h2 class="text-xl font-bold mb-4">Download youtube video</h2>
+            <p>${data.data.title}</p>
+            <a
+              id="downloadButton"
+              rel="nofollow"
+              href="${data.data.dlink}"
+              class="px-4 py-2 w-full bg-[#1E293B] hover:bg-[#020817] focus:bg-[#020817] focus:outline-none"
+              class="px-4 py-2 w-full bg-[#1E293B] hover:bg-[#020817] focus:bg-[#020817] focus:outline-none"
+            >
+              Download
+            </a>
+            `;
+          },
+          error: function (err) {
+            console.log(err);
+            loaderElement.classList.add("hidden");
+          },
+        });
+      };
     </script>
   </body>
-  <script src="script.js"></script>
 </html>

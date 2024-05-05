@@ -49,3 +49,39 @@ body {
   font-family: "Bricolage";
   color: #faf8fc;
 }
+
+.loader {
+  border: 2px solid white;
+  border-top: 2px solid #5a83ed;
+
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.label {
+  display: inline-block;
+  padding: 0.5em 0.7em;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 85%;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.2rem;
+}
+
+.label-primary {
+  color: #fff;
+  background-color: #5a83ed;
+}

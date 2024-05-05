@@ -22,6 +22,7 @@ const renderData = (data, $) => {
     title,
     a,
     links,
+    vid,
     related,
   } = data;
 
@@ -40,10 +41,16 @@ const renderData = (data, $) => {
         <p class="text-sm">${a.includes("@") ? a : "@" + a}</p>
     `);
 
-  renderVideoTable(links, $);
+  renderVideoTable(links, $, vid);
 };
 
-const renderVideoTable = (links, $) => {
+function KHtmlEncode(s) {
+  var el = document.createElement("div");
+  el.innerText = el.textContent = s;
+  s = el.innerHTML;
+  return s;
+}
+const renderVideoTable = (links, $, videoId) => {
   const { mp4, mp3, other } = links;
 
   const mp4Entry = Object.entries(mp4);
@@ -63,9 +70,11 @@ const renderVideoTable = (links, $) => {
                 <td class="px-6 py-3 text-start">${entry.q_text}</td>
                 <td class="px-6 py-3 text-start">${entry.size || "Unknown"}</td>
                 <td class="px-6 py-3 text-start">
-                    <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]">
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"  onclick="handleConvert('${videoId}', '${
+      entry.k
+    }')">
                         Download
-                    </button>
+                </button>
                 </td>
             </tr>
         `);
@@ -77,9 +86,11 @@ const renderVideoTable = (links, $) => {
                 <td class="px-6 py-3 text-start">${entry.q_text}</td>
                 <td class="px-6 py-3 text-start">${entry.size || "Unknown"}</td>
                 <td class="px-6 py-3 text-start">
-                    <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]">
+                 <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"  onclick="handleConvert('${videoId}', '${
+      entry.k
+    }')">
                         Download
-                    </button>
+                </button>
                 </td>
             </tr>
         `);
@@ -91,9 +102,11 @@ const renderVideoTable = (links, $) => {
                 <td class="px-6 py-3 text-start">${entry.q_text}</td>
                 <td class="px-6 py-3 text-start">${entry.size || "Unknown"}</td>
                 <td class="px-6 py-3 text-start">
-                    <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]">
+                   <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-[14px]"  onclick="handleConvert('${videoId}', '${
+      entry.k
+    }')">
                         Download
-                    </button>
+                </button>
                 </td>
             </tr>
         `);
@@ -108,17 +121,18 @@ const toggleLoading = (state, $) => {
   }
 };
 
+const handleConvert = (vId, token) => {
+  console.log(vId, token);
+};
+
 jQuery(($) => {
   $.noConflict();
 
   const ANALYZE_URL = "http://localhost:3000/api/analyze";
   const DOWNLOAD_URL = "http://localhost:3000/api/downloader/youtube";
 
-  const handleConvert = () => {};
-
   const handleSubmit = (value) => {
     const youtubeLink = value;
-
 
     $.ajax({
       url: ANALYZE_URL,

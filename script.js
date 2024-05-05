@@ -124,9 +124,7 @@ const toggleLoading = (state, $) => {
 jQuery(($) => {
   $.noConflict();
 
-  const ANALYZE_URL = "http://localhost:3000/api/analyze";
-
-
+  const ANALYZE_URL = "https://clipsavetest.vercel.app/api/analyze";
 
   const handleSubmit = (value) => {
     const youtubeLink = value;

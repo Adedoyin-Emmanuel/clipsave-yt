@@ -100,22 +100,25 @@ const renderVideoTable = (links, $) => {
   });
 };
 
+const toggleLoading = (state, $) => {
+  if (state == "show") {
+    $("#loader").removeClass("hidden");
+  } else {
+    $("#loader").addClass("hidden");
+  }
+};
+
 jQuery(($) => {
   $.noConflict();
 
   const ANALYZE_URL = "http://localhost:3000/api/analyze";
   const DOWNLOAD_URL = "http://localhost:3000/api/downloader/youtube";
 
-  let isLoading = false;
-
   const handleConvert = () => {};
 
   const handleSubmit = (value) => {
     const youtubeLink = value;
 
-    if (!isLoading) {
-      isLoading = true;
-    }
 
     $.ajax({
       url: ANALYZE_URL,
@@ -124,14 +127,16 @@ jQuery(($) => {
         url: youtubeLink,
       }),
       success: (response) => {
-        console.log(response);
-        isLoading = false;
-
+        toggleLoading("hide", $);
         renderData(response.data, $);
       },
       error: (xhr, status, error) => {
         alert(error);
-        isLoading = false;
+        toggleLoading("hide", $);
+      },
+
+      beforeSend: () => {
+        toggleLoading("show", $);
       },
     });
   };
